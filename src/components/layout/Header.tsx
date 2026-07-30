@@ -78,6 +78,7 @@ export function Header() {
       <nav
         id="mobile-nav"
         aria-label="Mobile"
+        aria-hidden={!open}
         className={clsx(
           "grid overflow-hidden border-t border-ink-200/70 bg-ink-50 transition-[grid-template-rows] duration-300 ease-out dark:border-ink-800/70 dark:bg-ink-950 md:hidden",
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
@@ -90,6 +91,7 @@ export function Header() {
                 key={link.to}
                 to={link.to}
                 end={link.end}
+                tabIndex={open ? 0 : -1}
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   clsx(

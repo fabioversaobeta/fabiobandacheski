@@ -29,7 +29,7 @@ export function Projects() {
             <h2 className="text-lg font-semibold text-ink-800 dark:text-ink-100">
               New projects are on the way
             </h2>
-            <p className="mx-auto mt-2 max-w-md text-sm text-ink-500 dark:text-ink-400">
+            <p className="mx-auto mt-2 max-w-md text-sm text-ink-600 dark:text-ink-400">
               I'm currently preparing case studies for this section. Check back soon, or take a
               look at my{" "}
               <a
@@ -39,6 +39,7 @@ export function Projects() {
                 className="font-medium text-accent-600 underline-offset-4 hover:underline dark:text-accent-400"
               >
                 GitHub
+                <span className="sr-only"> (opens in new tab)</span>
               </a>{" "}
               in the meantime.
             </p>
@@ -70,6 +71,7 @@ export function Projects() {
                       className="text-accent-600 hover:text-accent-700 dark:text-accent-400 dark:hover:text-accent-300"
                     >
                       Live site &rarr;
+                      <span className="sr-only"> (opens in new tab)</span>
                     </a>
                   )}
                   {project.repo && (
@@ -80,6 +82,7 @@ export function Projects() {
                       className="text-ink-600 hover:text-ink-900 dark:text-ink-300 dark:hover:text-white"
                     >
                       Source &rarr;
+                      <span className="sr-only"> (opens in new tab)</span>
                     </a>
                   )}
                 </div>

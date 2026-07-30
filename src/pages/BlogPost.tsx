@@ -51,7 +51,7 @@ export function BlogPost() {
         </Link>
 
         <header className="mt-6 max-w-3xl">
-          <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-ink-500 dark:text-ink-400">
+          <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-ink-600 dark:text-ink-400">
             <time dateTime={post.date}>{formatDate(post.date)}</time>
             <span aria-hidden="true">&middot;</span>
             <span>{post.readingTime} min read</span>

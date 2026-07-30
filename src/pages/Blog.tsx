@@ -35,29 +35,32 @@ export function Blog() {
         </p>
 
         {posts.length === 0 ? (
-          <p className="mt-12 text-ink-500 dark:text-ink-400">No posts yet — check back soon.</p>
+          <p className="mt-12 text-ink-600 dark:text-ink-400">No posts yet — check back soon.</p>
         ) : (
           <ul className="mt-12 flex flex-col divide-y divide-ink-200 dark:divide-ink-800">
             {posts.map((post) => (
-              <li key={post.slug} className="py-8 first:pt-0">
-                <Link to={`/blog/${post.slug}`} className="group block">
-                  <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-ink-500 dark:text-ink-400">
-                    <time dateTime={post.date}>{formatDate(post.date)}</time>
-                    <span aria-hidden="true">&middot;</span>
-                    <span>{post.readingTime} min read</span>
-                  </div>
-                  <h2 className="mt-2 text-xl font-semibold text-ink-900 transition-colors group-hover:text-accent-600 dark:text-white dark:group-hover:text-accent-400">
+              <li key={post.slug} className="relative py-8 first:pt-0">
+                <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-ink-600 dark:text-ink-400">
+                  <time dateTime={post.date}>{formatDate(post.date)}</time>
+                  <span aria-hidden="true">&middot;</span>
+                  <span>{post.readingTime} min read</span>
+                </div>
+                <h2 className="mt-2 text-xl font-semibold text-ink-900 dark:text-white">
+                  <Link
+                    to={`/blog/${post.slug}`}
+                    className="after:absolute after:inset-0 after:content-[''] transition-colors hover:text-accent-600 dark:hover:text-accent-400 focus-visible:outline-none focus-visible:after:rounded-xl focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-accent-500"
+                  >
                     {post.title}
-                  </h2>
-                  <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-600 dark:text-ink-300">
-                    {post.description}
-                  </p>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                      <Tag key={tag}>{tag}</Tag>
-                    ))}
-                  </div>
-                </Link>
+                  </Link>
+                </h2>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-600 dark:text-ink-300">
+                  {post.description}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {post.tags.map((tag) => (
+                    <Tag key={tag}>{tag}</Tag>
+                  ))}
+                </div>
               </li>
             ))}
           </ul>

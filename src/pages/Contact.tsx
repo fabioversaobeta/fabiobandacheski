@@ -45,25 +45,31 @@ export function Contact() {
         </p>
 
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {CHANNELS.map((channel) => (
-            <a
-              key={channel.label}
-              href={channel.href}
-              target={channel.href.startsWith("mailto:") ? undefined : "_blank"}
-              rel={channel.href.startsWith("mailto:") ? undefined : "noreferrer noopener"}
-              className="group flex flex-col rounded-2xl border border-ink-200 bg-white p-6 transition-shadow hover:shadow-md dark:border-ink-800 dark:bg-ink-900/40"
-            >
-              <span className="text-sm font-semibold uppercase tracking-wide text-ink-500 dark:text-ink-400">
-                {channel.label}
-              </span>
-              <span className="mt-2 text-lg font-semibold text-ink-900 group-hover:text-accent-600 dark:text-white dark:group-hover:text-accent-400">
-                {channel.value}
-              </span>
-              <span className="mt-2 text-sm text-ink-600 dark:text-ink-300">
-                {channel.description}
-              </span>
-            </a>
-          ))}
+          {CHANNELS.map((channel) => {
+            const external = !channel.href.startsWith("mailto:");
+            return (
+              <div
+                key={channel.label}
+                className="relative flex flex-col rounded-2xl border border-ink-200 bg-white p-6 transition-shadow hover:shadow-md dark:border-ink-800 dark:bg-ink-900/40"
+              >
+                <span className="text-sm font-semibold uppercase tracking-wide text-ink-600 dark:text-ink-400">
+                  {channel.label}
+                </span>
+                <a
+                  href={channel.href}
+                  target={external ? "_blank" : undefined}
+                  rel={external ? "noreferrer noopener" : undefined}
+                  className="mt-2 text-lg font-semibold text-ink-900 after:absolute after:inset-0 hover:text-accent-600 dark:text-white dark:hover:text-accent-400 focus-visible:outline-none focus-visible:after:rounded-2xl focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-accent-500"
+                >
+                  {channel.value}
+                  {external && <span className="sr-only"> (opens in new tab)</span>}
+                </a>
+                <span className="mt-2 text-sm text-ink-600 dark:text-ink-300">
+                  {channel.description}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </>

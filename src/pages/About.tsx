@@ -78,7 +78,7 @@ export function About() {
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {skillGroups.map((group) => (
             <div key={group.category}>
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-ink-500 dark:text-ink-400">
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-ink-600 dark:text-ink-400">
                 {group.category}
               </h3>
               <ul className="mt-3 flex flex-wrap gap-2">
