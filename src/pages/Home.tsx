@@ -81,7 +81,7 @@ export function Home() {
                 key={group.category}
                 className="rounded-2xl border border-ink-200 bg-white p-6 dark:border-ink-800 dark:bg-ink-900/40"
               >
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-ink-500 dark:text-ink-400">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-ink-600 dark:text-ink-400">
                   {group.category}
                 </h3>
                 <ul className="mt-3 flex flex-wrap gap-2">
@@ -122,21 +122,25 @@ export function Home() {
             </div>
             <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {latestPosts.map((post) => (
-                <Link
+                <div
                   key={post.slug}
-                  to={`/blog/${post.slug}`}
-                  className="group flex flex-col rounded-2xl border border-ink-200 bg-white p-6 transition-shadow hover:shadow-md dark:border-ink-800 dark:bg-ink-900/40"
+                  className="relative flex flex-col rounded-2xl border border-ink-200 bg-white p-6 transition-shadow hover:shadow-md dark:border-ink-800 dark:bg-ink-900/40"
                 >
-                  <time dateTime={post.date} className="text-xs font-medium text-ink-500 dark:text-ink-400">
+                  <time dateTime={post.date} className="text-xs font-medium text-ink-600 dark:text-ink-400">
                     {formatDate(post.date)}
                   </time>
-                  <h3 className="mt-2 text-lg font-semibold text-ink-900 group-hover:text-accent-600 dark:text-white dark:group-hover:text-accent-400">
-                    {post.title}
+                  <h3 className="mt-2 text-lg font-semibold text-ink-900 dark:text-white">
+                    <Link
+                      to={`/blog/${post.slug}`}
+                      className="after:absolute after:inset-0 hover:text-accent-600 dark:hover:text-accent-400 focus-visible:outline-none focus-visible:after:rounded-2xl focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-accent-500"
+                    >
+                      {post.title}
+                    </Link>
                   </h3>
                   <p className="mt-2 line-clamp-3 text-sm text-ink-600 dark:text-ink-300">
                     {post.description}
                   </p>
-                </Link>
+                </div>
               ))}
             </div>
           </Container>
