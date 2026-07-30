@@ -7,7 +7,7 @@ const projectRoot = path.resolve(rootDir, "..");
 const blogDir = path.join(projectRoot, "src/content/blog");
 const outDir = path.join(projectRoot, "dist");
 
-const SITE_URL = "https://fabiobandacheski.com";
+const SITE_URL = "https://www.fabiobandacheski.com";
 
 const staticRoutes = ["/", "/about", "/projects", "/blog", "/contact"];
 

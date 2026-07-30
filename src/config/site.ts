@@ -6,7 +6,7 @@ export const siteConfig = {
   tagline: "Full Stack Software Engineer building fast, reliable web products.",
   description:
     "Portfolio and blog of Fabio Bandacheski, a Full Stack Software Engineer specializing in PHP, Node.js, React and Vue. Projects, writing, and notes on modern web engineering.",
-  url: "https://fabiobandacheski.com",
+  url: "https://www.fabiobandacheski.com",
   locale: "en_US",
   email: "fabio.versao.beta@gmail.com",
   social: {
