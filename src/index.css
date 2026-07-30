@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --color-ink-50: #f8fafc;
+  --color-ink-100: #eef1f6;
+  --color-ink-200: #dde3ec;
+  --color-ink-300: #c3ccd9;
+  --color-ink-400: #96a2b8;
+  --color-ink-500: #6b7994;
+  --color-ink-600: #4d5972;
+  --color-ink-700: #37415a;
+  --color-ink-800: #232a3d;
+  --color-ink-900: #141926;
+  --color-ink-950: #0a0d15;
+
+  --color-accent-50: #eef4ff;
+  --color-accent-100: #dfe8ff;
+  --color-accent-200: #c2d3ff;
+  --color-accent-300: #97b2ff;
+  --color-accent-400: #6685ff;
+  --color-accent-500: #3f5cf5;
+  --color-accent-600: #2a3ede;
+  --color-accent-700: #212fb3;
+  --color-accent-800: #1f2c8c;
+  --color-accent-900: #1e2a6e;
+
+  --animate-fade-up: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in: fade-in 0.5s ease-out both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-50 text-ink-800 antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.dark body {
+  @apply bg-ink-950 text-ink-100;
+}
+
+::selection {
+  @apply bg-accent-200 text-accent-900;
+}
+
+.dark ::selection {
+  @apply bg-accent-800 text-accent-50;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
