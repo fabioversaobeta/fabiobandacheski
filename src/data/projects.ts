@@ -10,8 +10,8 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "repertorio",
-    title: "Repertório",
+    slug: "musical-repertory",
+    title: "Musical Repertory",
     description:
       "Repertoire manager for bands: members share a song library, build setlists and keep everyone in sync, with invite codes, admin approval and push notifications.",
     stack: ["Next.js", "React", "tRPC", "Prisma", "PostgreSQL", "Tailwind CSS", "Turborepo"],
