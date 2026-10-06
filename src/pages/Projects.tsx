@@ -50,6 +50,11 @@ export function Projects() {
                 key={project.slug}
                 className="flex flex-col rounded-2xl border border-ink-200 bg-white p-6 dark:border-ink-800 dark:bg-ink-900/40"
               >
+                {project.featured && (
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-accent-600 dark:text-accent-400">
+                    Featured
+                  </p>
+                )}
                 <h2 className="text-lg font-semibold text-ink-900 dark:text-white">{project.title}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-ink-600 dark:text-ink-300">
                   {project.description}
@@ -61,7 +66,7 @@ export function Projects() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-5 flex gap-4 text-sm font-semibold">
+                <div className="mt-auto flex gap-4 pt-5 text-sm font-semibold">
                   {project.url && (
                     <a
                       href={project.url}
