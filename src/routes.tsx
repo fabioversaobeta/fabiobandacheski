@@ -63,4 +63,14 @@ export const routes: RouteRecord[] = [
       },
     ],
   },
+  {
+    // Standalone page: it has its own layout (no site header/footer) and is
+    // intentionally not linked from the main navigation or the sitemap.
+    path: "/fabio-e-debora",
+    lazy: async () => {
+      const { Wedding } = await import("./pages/Wedding");
+      return { Component: Wedding };
+    },
+    entry: "src/pages/Wedding.tsx",
+  },
 ];
