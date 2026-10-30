@@ -29,6 +29,7 @@ export function About() {
       />
 
       <Container as="section" className="py-16 sm:py-20">
+        <div className="grid items-center gap-10 md:grid-cols-[1fr_16rem]">
         <div className="max-w-2xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-accent-600 dark:text-accent-400">
             About
@@ -54,6 +55,14 @@ export function About() {
               this site, and refining my own workflow.
             </p>
           </div>
+        </div>
+        <img
+          src="/fabio.jpg"
+          alt={`Portrait of ${siteConfig.name}`}
+          width={1050}
+          height={1400}
+          className="aspect-[4/5] w-full max-w-xs rounded-3xl border border-ink-200 object-cover object-top shadow-xl dark:border-ink-800"
+        />
         </div>
       </Container>
 
